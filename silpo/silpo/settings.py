@@ -55,7 +55,7 @@ ROOT_URLCONF = 'silpo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +67,13 @@ TEMPLATES = [
         },
     },
 ]
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    '/C:/Users/Grinvalera/PycharmProjects/silpo/silpo/static/',
+)
 
 WSGI_APPLICATION = 'silpo.wsgi.application'
 
