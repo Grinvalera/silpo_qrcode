@@ -25,16 +25,16 @@
   <div class="general-container">
         <form action="" method="post" class="form-inline text-center">{%csrf_token%}
                             <div class="form-label-group">
-                                {{ form.text }}
-                                <label for="id_text">Text</label>
-                            </div>
-                            <div class="form-label-group">
+                                <label for="id_name">Your name: </label>
                                 {{ form.name }}
-                                <label for="id_name">Name</label>
                             </div>
                             <div class="form-label-group">
+                                <label for="id_contact">Your contact: </label>
                                 {{ form.contact }}
-                                <label for="id_contact">contact</label>
+                            </div>
+                            <div class="form-label-group">
+                                <label for="id_text">Your text: </label>
+                                {{ form.text }}
                             </div>
     <button type="sumbit" class="btn btn-primary btn-orange">Send</button>
     </form>
