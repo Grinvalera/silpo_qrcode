@@ -1,78 +1,36 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
+{%extends 'service/base.html'%}
+{%block content%}
+{%load static%}
+  <form method="post" class="form-signin">{% csrf_token %}
+          <div class="text-center mb-4">
+<!--            <img class="mb-4" src="{static 'url'}" alt="" width="150">-->
+            <h1 class="h3 mb-3 font-weight-normal">Есть что сказать?</h1>
+            <p>Опиши всё, что думаешь</p>
+          </div>
+        <div class="form-label-group">
+            {{ form.text }}
+            {{ form.text.errors }}
+        </div>
 
-<meta charset="UTF-8">
-    <title>Title</title>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="switch" onclick="if(this.checked){document.getElementById('hidden').style.display='block';} else {document.getElementById('hidden').style.display='none';}">
+          <label class="custom-control-label" for="switch">Оставить контакты</label>
+        </div>
+        <div id="hidden" style="display: none;">
+            <div class="form-label-group">
+                {{ form.name }}
+                {{ form.name.errors }}
+                <label for="id_name">Имя</label>
+            </div>
 
-    <!-- Bootstrap-->
+            <div class="form-label-group">
+                {{ form.contact }}
+                {{ form.contact.errors }}
+                <label for="id_contact">Контакт</label>
+            </div>
+        </div>
+        <button class="btn btn-lg btn-secondary btn-block btn btn-primary btn-red" type="submit">Отправить</button>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
-
-
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400" rel="stylesheet">
-
-    <!-- Custom styles -->
-<!--<link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
-
-<link href="{% static 'style.css' %}" rel="stylesheet">
-    <style>
-
-    </style>
-</head>
-<body>
-  <div class="general-container">
-        <form action="" method="post" class="form-inline text-center">{%csrf_token%}
-                            <div class="form-label-group">
-                                <label for="id_name">Your name: </label>
-                                {{ form.name }}
-                            </div>
-                            <div class="form-label-group">
-                                <label for="id_contact">Your contact: </label>
-                                {{ form.contact }}
-                            </div>
-                            <div class="form-label-group">
-                                <label for="id_text">Your text: </label>
-                                {{ form.text }}
-                            </div>
-    <button type="sumbit" class="btn btn-primary btn-orange">Send</button>
+        <p class="mt-5 mb-3 text-muted text-center">политика конфиденциальности</p>
     </form>
-  </div>
-</body>
-
-<!--  </div>-->
-<!--  <div class="general-container"><form class="form-signin">-->
-<!--  <div class="text-center mb-4">-->
-<!--    <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
-<!--    <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>-->
-<!--    <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>-->
-<!--  </div>-->
-
-<!--  <div class="form-label-group">-->
-<!--    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>-->
-<!--    <label for="inputEmail">Email address</label>-->
-<!--  </div>-->
-
-<!--  <div class="form-label-group">-->
-<!--    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>-->
-<!--    <label for="inputPassword">Password</label>-->
-<!--  </div>-->
-
-<!--  <div class="checkbox mb-3">-->
-<!--    <label>-->
-<!--      <input type="checkbox" value="remember-me"> Remember me-->
-<!--    </label>-->
-<!--  </div>-->
-<!--  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
-<!--  <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>-->
-<!--</form>-->
-
-
-
-<!--     Optional JavaScript-->
-<!--     jQuery first, then Popper.js, then Bootstrap JS-->
-<!--    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>-->
-<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
-</html>
+{%endblock content%}

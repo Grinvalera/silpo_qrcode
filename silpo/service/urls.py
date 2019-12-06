@@ -17,14 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf import settings
 
 from . import views
-from .views import FeedbackView
-
+from .views import FeedbackView, QRListView
+from django.views.generic import TemplateView
 
 app_name = 'service'
 
 urlpatterns = [
     path('feedback/', FeedbackView.as_view()),
+    path('ok/', TemplateView.as_view(template_name='service/qr2.html'), name='ok'),
+    path('qr/all/', QRListView.as_view())
     # path(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
 ]

@@ -6,6 +6,7 @@ html, body{
 .general-container{
     background: url("img/4.jpg");
     height: 700px;
+    text-align: center;
 }
 .title{
     color: darkred;

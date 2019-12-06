@@ -1,0 +1,15 @@
+{%extends 'service/base.html'%}
+{%block content%}
+{% load qr_code %}
+{% qr_from_text "Hello World!" size="H" options=my_options %}
+<ul>
+{%for qrcode in object_list%}
+    <li>
+        <img src="{{qrcode.image.url}}", alt="", height="128px", width="128px"/>
+        <span>--------------{{qrcode.unique_id}}</span>
+    </li>
+{%empty%}
+<p>Not qrcode</p>>
+{%endfor%}
+</ul>
+{%endblock%}
